@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@1,700&family=Oxygen:wght@700&family=RocknRoll+One&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #1E2428;
+    font-family: 'Karla', sans-serif;
+    font-family: 'Oxygen', sans-serif;
+    font-family: 'RocknRoll One', sans-serif;
+
+    margin-bottom: 8px;
+}
+
+h1{
+    color: white;
+    text-align: center;
+}
+
+
+.image img{
+    width: 200px;
+    height: 95%;
+    border: 1px solid #fff;
+    text-align: center;
+}
+
+.image{
+    width: 100%;
+    text-align: center;
+    color: white;
+    align-content: center;
+}
+
+.menu{
+    position: absolute;
+    width: 100%;
+    text-align: center;
+}
+
+.menu a{
+    display: block;
+    height: 62px;
+    padding: 13px;
+    font-size: 25px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    background-color: #222831;
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+}
+
+.menu a:hover{
+    background-color: #152A38;
+}

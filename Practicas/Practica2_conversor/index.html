@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<head>
+    <title>Conversor de Unidades</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+
+<body>
+    <form>
+        <h1>Programa que convierte</h1>
+        <label>Introduce el n&uacute;mero decimal</label>
+        <input type="text" id="num" name="numero" value="">
+        <button type="button" onclick="binario1(numero.value)">A binario</button>
+        <button type="button" onclick="hexa1(numero.value)">A Hexadecimal</button>
+        <button type="button" onclick="nuevo1()">Limpiar</button>
+        <button type="button" onclick="limpiar1()">Limpiar Todos</button>
+        <button type="button" onclick="location.href='../../index.html'">Men&uacute;</button>
+    </form>
+
+    <script type="text/javascript">
+    function nuevo1(){
+    parrafo = document.getElementsByTagName('p')[0];
+    parrafo.parentNode.removeChild(parrafo);
+    }
+    function limpiar1(){
+        lista=document.querySelectorAll('p');
+        if(lista.length!=0){
+            i=lista.length-1;  // posiciona en el último párrafo creado
+            while(i>-1)
+            lista[i].parentNode.removeChild(lista[i--]);
+        }
+        else alert("No hay párrafos a eliminar");
+    }
+    //Decimal a Binario
+    function binario1(numero){
+        var cadena = "";
+        while(numero > 0){
+            cadena = (numero % 2) + cadena;
+            numero = Math.floor(numero / 2); 
+        }
+        parrafo = document.createElement("p");
+        contenido = document.createTextNode("El número decimal "
+        +parseInt(document.getElementById("num").value)+" en binario es "+cadena);  
+        parrafo.appendChild(contenido);
+        document.body.appendChild(parrafo);
+        document.getElementById("num").value="";
+    }
+    //Decimal a Hexadecimal
+    function hexa1(numero){
+        var cadena = "";
+        var residuo = 0;
+        while(numero > 0){
+            residuo = numero % 16;
+            if(residuo > 9){
+                switch(residuo){
+                    case 10: cadena = "A" + cadena; break;
+                    case 11: cadena = "B" + cadena; break;
+                    case 12: cadena = "C" + cadena; break;
+                    case 13: cadena = "D" + cadena; break;
+                    case 14: cadena = "E" + cadena; break;
+                    case 15: cadena = "F" + cadena; break;
+                }
+                numero = Math.floor(numero / 16);
+            }else{
+                cadena = residuo + cadena;
+                numero = Math.floor(numero / 16);
+            }
+        }
+        parrafo = document.createElement("p");
+        contenido = document.createTextNode("El número decimal "
+        +parseInt(document.getElementById("num").value)+" en hexadecimal es "+cadena);  
+        parrafo.appendChild(contenido);
+        document.body.appendChild(parrafo);
+        document.getElementById("num").value="";
+    }
+    </script>
+</body>
+</html>
